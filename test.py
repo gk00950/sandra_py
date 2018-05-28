@@ -106,10 +106,10 @@ def jaSicher():
     root.after(750, lambda: updateMouth("e"))  # Er
     root.after(1100, lambda: updateMouth("m"))  # --
 
-# Set 1 : Tschüss Kinder, bis zum nächsten Mal
+# Set 1 : Tschuess Kinder, bis zum naechsten Mal
 def tschuessKinder():
     updateMouth("f")  # tsch
-    root.after(100, lambda: updateMouth("o"))  # Ü
+    root.after(100, lambda: updateMouth("o"))  # u
     root.after(200, lambda: updateMouth("f"))  # SS
 
     root.after(350, lambda: updateMouth("i"))  # kI
@@ -120,7 +120,7 @@ def tschuessKinder():
     root.after(950, lambda: updateMouth("i"))  # bI
     root.after(1130, lambda: updateMouth("o"))  # Um
 
-    root.after(1300, lambda: updateMouth("e"))  # nÄchstE
+    root.after(1300, lambda: updateMouth("e"))  # naechstE
     root.after(1500, lambda: updateMouth("m"))  # N _ M
     root.after(1650, lambda: updateMouth("a"))  # A
     root.after(2000, lambda: updateMouth("m"))  # -
