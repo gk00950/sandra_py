@@ -31,6 +31,7 @@ root = tkinter.Tk()
 root.bind("<Escape>", close)
 root.bind("<Key>", onKeyPress)
 root.attributes("-fullscreen", True)
+root.config(cursor="none")
 
 height = root.winfo_screenheight()
 width = root.winfo_screenwidth()
