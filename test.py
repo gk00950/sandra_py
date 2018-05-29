@@ -1,6 +1,8 @@
 import time
 import tkinter
+import serial
 from PIL import ImageTk, Image
+from pprint import pprint
 
 
 def close(event):
@@ -96,6 +98,7 @@ def hallokinder():
     root.after(4900, lambda: updateMouth("f"))  # Z
     root.after(5000, lambda: updateMouth("e"))  # Eug
     root.after(5400, lambda: updateMouth("m"))  # --
+    return 5400
 
 # Set 1 : Ja Sicher.
 def jaSicher():
@@ -106,6 +109,7 @@ def jaSicher():
     root.after(526, lambda: updateMouth("i"))  # Ich
     root.after(750, lambda: updateMouth("e"))  # Er
     root.after(1100, lambda: updateMouth("m"))  # --
+    return 1100
 
 # Set 1 : Tschuess Kinder, bis zum naechsten Mal
 def tschuessKinder():
@@ -125,6 +129,8 @@ def tschuessKinder():
     root.after(1500, lambda: updateMouth("m"))  # N _ M
     root.after(1650, lambda: updateMouth("a"))  # A
     root.after(2000, lambda: updateMouth("m"))  # -
+    return 2000
+
 
 # Set 2 : Drehen
 def drehen():
@@ -132,6 +138,7 @@ def drehen():
     root.after(150, lambda: updateMouth("e"))  # Eh
     root.after(550, lambda: updateMouth("l"))  # eN
     root.after(1000, lambda: updateMouth("m"))  # --
+    return 1000
 
 # Set 2 : Dribbeln
 def dribbeln():
@@ -141,6 +148,7 @@ def dribbeln():
     root.after(400, lambda: updateMouth("e"))  # E
     root.after(600, lambda: updateMouth("l"))  # Ln
     root.after(1100, lambda: updateMouth("m"))  # --
+    return 1100
 
 # Set 2 : Werfen
 def werfen():
@@ -149,6 +157,7 @@ def werfen():
     root.after(280, lambda: updateMouth("f"))  # F
     root.after(400, lambda: updateMouth("e"))  # E
     root.after(1000, lambda: updateMouth("m"))  #
+    return 1000
 
 
 # Set 3 : Am Stand Laufen
@@ -167,7 +176,7 @@ def amStandLaufen():
     root.after(1080, lambda: updateMouth("e"))  # eN
 
     root.after(1600, lambda: updateMouth("m"))  # m
-
+    return 1600
 
 def allesGuteZumGeburtstag():
     updateMouth("a")  #
@@ -191,8 +200,30 @@ def allesGuteZumGeburtstag():
     root.after(2700, lambda: updateMouth("f"))  #
     root.after(2900, lambda: updateMouth("a"))  #
     root.after(3300, lambda: updateMouth("i"))  #
+    return 3300
 
 
+ser = serial.Serial("/dev/ttyACM0", 9600, timeout=0, writeTimeout=0)
+
+def serialRead():
+    c = ser.readline().decode("ascii")
+
+    if c != "":    
+        serialInput(c)
+        
+    else:
+        root.after(10, serialRead)
+
+
+def serialInput(which):
+    pprint(which)
+    if which == "0":
+        last = hallokinder()
+        root.after(last, serialRead)
+    else:
+        root.after(10, serialRead)
+
+root.after(10, serialRead)
 
 # run
 root.mainloop()
