@@ -17,14 +17,6 @@ def updateMouth(which):
     if which in mouths:
         canvas.delete("lips")
         canvas.create_image(mouthX, mouthY, anchor=tkinter.NW, tags="lips", image=img[which])
-    if which == "1":
-        jaSicher()
-    if which == "2":
-        amStandLaufen()
-    if which == "3":
-        hallokinder()
-    if which == "4":
-        dribbeln()
 
 
 
@@ -50,7 +42,7 @@ file = {"smile": Image.open("smile.png").resize((width, height), Image.ANTIALIAS
 img = {"smile": ImageTk.PhotoImage(file["smile"]),
        "smile2": ImageTk.PhotoImage(file["smile2"])}
 
-mouths = ["m", "a", "e", "i", "o", "l", "f", "r", "s"]
+mouths = ["m", "a", "e", "i", "o", "l", "f", "r", "s", "_"]
 for m in mouths:
     file[m] = Image.open(m+".png").resize((mouthWidth, mouthHeight), Image.ANTIALIAS);
     img[m] = ImageTk.PhotoImage(file[m])
@@ -65,7 +57,7 @@ canvas.create_image(mouthX, mouthY, anchor=tkinter.NW, tags="lips", image=img["m
 
 
 # Set 1 : Hallo Kinder das ist der Franz...
-def hallokinder():
+def halloKinderDasIst():
     updateMouth("a")  # hA
     root.after(200, lambda: updateMouth("o"))  # llO
     root.after(350, lambda: updateMouth("i"))  # kI
@@ -179,6 +171,150 @@ def amStandLaufen():
     root.after(1600, lambda: updateMouth("m"))  # m
     return 1600
 
+
+# ap_1
+def applaus():
+    updateMouth("e")  # Ei
+    # root.after(150, lambda: updateMouth("m"))  # Nen
+    # root.after(400, lambda: updateMouth("r"))  # R
+    root.after(500, lambda: updateMouth("i"))  # IE
+    # root.after(950, lambda: updateMouth("f"))  # S
+    root.after(1050, lambda: updateMouth("e"))  # En
+    root.after(1250, lambda: updateMouth("a"))  # App
+    # root.after(1450, lambda: updateMouth("l"))  # L
+    # root.after(1600, lambda: updateMouth("a"))  # A
+    root.after(1800, lambda: updateMouth("o"))  # U
+    # root.after(2000, lambda: updateMouth("f"))  # S F
+    # root.after(2300, lambda: updateMouth("o"))  # UEr
+    root.after(2400, lambda: updateMouth("e"))  # dEn
+    # root.after(2550, lambda: updateMouth("f"))  # Fr
+    root.after(2700, lambda: updateMouth("a"))  # A
+    # root.after(2900, lambda: updateMouth("m"))  # n
+    root.after(3250, lambda: updateMouth("m"))  # --
+    return 3250
+
+# bist_du_1
+def bistDuDirSicher():
+    updateMouth("f")  # Fr
+    root.after(150, lambda: updateMouth("a"))  # Anz
+    root.after(500, lambda: updateMouth("m"))  #
+    root.after(800, lambda: updateMouth("i"))  # bIst
+    root.after(950, lambda: updateMouth("o"))  # dU dir
+    root.after(1200, lambda: updateMouth("i"))  # sIch
+    root.after(1550, lambda: updateMouth("a"))  # Er
+    root.after(1800, lambda: updateMouth("m"))  # --
+
+    root.after(3450, lambda: updateMouth("o"))  # Ok
+    root.after(3700, lambda: updateMouth("e"))  # Ey (ich)
+    root.after(4100, lambda: updateMouth("a"))  # vErtrAu
+    root.after(4550, lambda: updateMouth("i"))  # dIr
+
+    root.after(4900, lambda: updateMouth("o"))  # los
+    root.after(5600, lambda: updateMouth("e"))  # gEhts
+
+    root.after(6200, lambda: updateMouth("m"))  # --
+    return 6200
+
+
+# das kitzelt_1
+def dasKitzelt():
+    updateMouth("f")  # ...
+    root.after(1000, lambda: updateMouth("_"))  # ...
+    root.after(2000, lambda: updateMouth("f"))  # ...
+    root.after(3200, lambda: updateMouth("a"))  # dAs
+    root.after(3600, lambda: updateMouth("e"))  # kItz
+    root.after(3900, lambda: updateMouth("l"))  # eLt
+    root.after(4500, lambda: updateMouth("f"))  # ...
+    root.after(5800, lambda: updateMouth("m"))  # --
+    return 5800
+
+
+# hallo kinder
+def halloKinder():
+    updateMouth("a")  # hA
+    root.after(200, lambda: updateMouth("o"))  # llO
+    root.after(350, lambda: updateMouth("i"))  # kI
+    root.after(600, lambda: updateMouth("a"))  # ndEr
+    root.after(800, lambda: updateMouth("m"))  # --
+    return 800
+
+
+# ja_klar_1
+def jaKlar():
+    updateMouth("A")  # jA
+    root.after(450, lambda: updateMouth("l"))  # kL
+    root.after(600, lambda: updateMouth("a"))  # Ar
+    root.after(1000, lambda: updateMouth("m"))  # --
+    return 1000
+
+
+# ja sicher (langsame version)
+def jaSicher_slow():
+    updateMouth("a")  # jA
+    root.after(450, lambda: updateMouth("i"))  # sIch
+    root.after(750, lambda: updateMouth("a"))  # Er
+    root.after(1000, lambda: updateMouth("m"))  # --
+    return 1000
+
+
+# soundcheck
+def soundCheck():
+    updateMouth("e")  # Eins
+    root.after(400, lambda: updateMouth("a"))  # Zwei
+    root.after(800, lambda: updateMouth("e"))  # Drei
+    root.after(1100, lambda: updateMouth("i"))  # Vier
+    root.after(1500, lambda: updateMouth("o"))  # sOUnd
+    root.after(1850, lambda: updateMouth("e"))  # chEk
+    root.after(2300, lambda: updateMouth("m"))  # mm
+    return 2300
+
+
+# sounderzeugen
+def soundErzeugen():
+    updateMouth("a")  # jA
+    root.after(350, lambda: updateMouth("i"))  # sIch
+    root.after(600, lambda: updateMouth("a"))  # Er
+    root.after(800, lambda: updateMouth("m"))  # --
+
+    root.after(1100, lambda: updateMouth("a"))  # dann
+    root.after(1300, lambda: updateMouth("o"))  # kOnzentr
+    root.after(1800, lambda: updateMouth("i"))  # Ier Ich mich
+    root.after(2300, lambda: updateMouth("a"))  # Aufs
+
+    root.after(2800, lambda: updateMouth("o"))  # sOund
+    root.after(3100, lambda: updateMouth("e"))  # Erzeugen
+    root.after(3800, lambda: updateMouth("m"))  # --
+    return 3800
+
+
+# Tschuess Kinder, bis zum naechsten Mal (langsam)
+def tschuessKinder_slow():
+    updateMouth("o")  # tschuess
+
+    # root.after(350, lambda: updateMouth("i"))  # kI
+    # root.after(450, lambda: updateMouth("m"))  # Nd
+    root.after(520, lambda: updateMouth("e"))  # Er
+    # root.after(800, lambda: updateMouth("m"))  # --
+
+    root.after(950, lambda: updateMouth("i"))  # bI
+    # root.after(1130, lambda: updateMouth("o"))  # Um
+
+    root.after(1300, lambda: updateMouth("e"))  # naechstE
+    # root.after(1500, lambda: updateMouth("m"))  # N _ M
+    root.after(1650, lambda: updateMouth("a"))  # A
+    root.after(2000, lambda: updateMouth("m"))  # -
+    return 2000
+
+
+# wer traut sich_1
+def werTrautSich():
+    updateMouth("e")  # wEr
+    root.after(400, lambda: updateMouth("a"))  # trAut
+    root.after(800, lambda: updateMouth("i"))  # sIch
+    root.after(1300, lambda: updateMouth("m"))  # --
+    return 1300
+
+
 def allesGuteZumGeburtstag():
     updateMouth("a")  #
     root.after(200, lambda: updateMouth("l"))  #
@@ -204,14 +340,11 @@ def allesGuteZumGeburtstag():
     return 3300
 
 
-ser = serial.Serial("/dev/ttyACM0", 9600, timeout=0, writeTimeout=0)
 
 def serialRead():
     c = ser.readline().decode("ascii")
-
-    if c != "":    
+    if c != "":
         serialInput(c)
-        
     else:
         root.after(10, serialRead)
 
@@ -220,15 +353,52 @@ def serialCallback():
     throwaway = ser.readline()
     serialRead()
 
+
 def serialInput(which):
     pprint(which)
+
+    # ----------------------------------------------------------------------------------------------------------------
     if which == "0":
-        last = hallokinder()
+        last = halloKinderDasIst()
         root.after(last, serialCallback)
+    if which == "a":
+        last = halloKinder()
+        root.after(last, serialCallback)
+    if which == "b":
+        last = bistDuDirSicher()
+        root.after(last, serialCallback)
+    if which == "c":
+        last = dasKitzelt()
+        root.after(last, serialCallback)
+    if which == "d":
+        last = soundErzeugen()
+        root.after(last, serialCallback)
+    if which == "e":
+        last = jaSicher_slow()
+        root.after(last, serialCallback)
+    if which == "f":
+        last = jaKlar()
+        root.after(last, serialCallback)
+    if which == "g":
+        last = tschuessKinder_slow()
+        root.after(last, serialCallback)
+    if which == "h":
+        last = applaus()
+        root.after(last, serialCallback)
+    if which == "i":
+        last = soundCheck()
+        root.after(last, serialCallback)
+    # ----------------------------------------------------------------------------------------------------------------
     else:
         root.after(10, serialRead)
 
-root.after(10, serialRead)
+
+try:
+    ser = serial.Serial("/dev/ttyACM0", 9600, timeout=0, writeTimeout=0)
+    root.after(10, serialCallback)
+except Exception:
+    pass
+
 
 # run
 root.mainloop()
