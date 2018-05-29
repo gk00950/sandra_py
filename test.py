@@ -56,8 +56,9 @@ for m in mouths:
     img[m] = ImageTk.PhotoImage(file[m])
 
 
-canvas = tkinter.Canvas(root, width=width, height=height)
+canvas = tkinter.Canvas(root, width=width, height=height, highlightthickness=0)
 canvas.pack(side="bottom", fill="both", expand="yes")
+canvas.configure(background="black")
 canvas.create_image(0, 0, anchor=tkinter.NW, image=img["smile"])
 canvas.create_image(mouthX, mouthY, anchor=tkinter.NW, tags="lips", image=img["m"])
 
@@ -215,11 +216,15 @@ def serialRead():
         root.after(10, serialRead)
 
 
+def serialCallback():
+    throwaway = ser.readline()
+    serialRead()
+
 def serialInput(which):
     pprint(which)
     if which == "0":
         last = hallokinder()
-        root.after(last, serialRead)
+        root.after(last, serialCallback)
     else:
         root.after(10, serialRead)
 
