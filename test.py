@@ -316,6 +316,62 @@ def werTrautSich():
     return 1300
 
 
+# springen_1
+def springen():
+    updateMouth("e")  # spring
+    root.after(500, lambda: updateMouth("f"))  # eN
+    root.after(1100, lambda: updateMouth("m"))  # --
+    return 1100
+
+
+# klatschen_1
+def klatschen():
+    updateMouth("a")  # klAtsch
+    root.after(400, lambda: updateMouth("e"))  # E
+    root.after(800, lambda: updateMouth("f"))  # N
+    root.after(1100, lambda: updateMouth("m"))  # --
+    return 1100
+
+
+# haende_1
+def haendeKopfKlatschen():
+    updateMouth("e")  # haende
+    root.after(350, lambda: updateMouth("o"))  # ueber
+    root.after(500, lambda: updateMouth("e"))  # er den
+    root.after(800, lambda: updateMouth("o"))  # kOpf Und
+    root.after(1300, lambda: updateMouth("a"))  # klA
+    root.after(1650, lambda: updateMouth("e"))  # tschEn
+    root.after(2200, lambda: updateMouth("m"))  # --
+    return 2200
+
+
+# bogen_links_1
+def bogenLinks():
+    updateMouth("o")  # bOgen
+    root.after(500, lambda: updateMouth("i"))  # lInk
+    root.after(900, lambda: updateMouth("f"))  # S
+    root.after(1200, lambda: updateMouth("m"))  # --
+    return 1200
+
+
+# bogen_rechts_1
+def bogenRechts():
+    updateMouth("o")  # bOgen
+    root.after(500, lambda: updateMouth("e"))  # rEcht
+    root.after(950, lambda: updateMouth("f"))  # S
+    root.after(1300, lambda: updateMouth("m"))  # --
+    return 1300
+
+
+# hocke_1
+def hocke():
+    updateMouth("i")  # In dIe
+    root.after(350, lambda: updateMouth("o"))  # hO
+    root.after(700, lambda: updateMouth("e"))  # kE
+    root.after(1100, lambda: updateMouth("m"))  # --
+    return 1100
+
+
 def allesGuteZumGeburtstag():
     updateMouth("a")  #
     root.after(200, lambda: updateMouth("l"))  #
@@ -388,6 +444,24 @@ def serialInput(which):
         root.after(last, serialCallback)
     if which == "i":
         last = soundCheck()
+        root.after(last, serialCallback)
+    if which == "j":
+        last = springen()
+        root.after(last, serialCallback)
+    if which == "k":
+        last = klatschen()
+        root.after(last, serialCallback)
+    if which == "l":
+        last = haendeKopfKlatschen()
+        root.after(last, serialCallback)
+    if which == "m":
+        last = bogenLinks()
+        root.after(last, serialCallback)
+    if which == "n":
+        last = bogenRechts()
+        root.after(last, serialCallback)
+    if which == "o":
+        last = bogenRechts()
         root.after(last, serialCallback)
     # ----------------------------------------------------------------------------------------------------------------
     else:
