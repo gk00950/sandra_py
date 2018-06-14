@@ -372,6 +372,20 @@ def hocke():
     return 1100
 
 
+# abschluss_1
+def zumAbschluss():
+    updateMouth("a")  # zum Abschluss
+    root.after(1000, lambda: updateMouth("o"))  # nOch ein
+    root.after(1600, lambda: updateMouth("i"))  # lIed
+    root.after(2100, lambda: updateMouth("m"))  # geMeinsam
+    root.after(2700, lambda: updateMouth("a"))  # Also
+    root.after(3000, lambda: updateMouth("e"))  # nOch einmal
+    root.after(3500, lambda: updateMouth("o"))  # vOll
+    root.after(4000, lambda: updateMouth("a"))  # gAs
+    root.after(4600, lambda: updateMouth("m"))  # --
+    return 4600
+
+
 def allesGuteZumGeburtstag():
     updateMouth("a")  #
     root.after(200, lambda: updateMouth("l"))  #
@@ -462,6 +476,9 @@ def serialInput(which):
         root.after(last, serialCallback)
     if which == "o":
         last = bogenRechts()
+        root.after(last, serialCallback)
+    if which == "p":
+        last = zumAbschluss()
         root.after(last, serialCallback)
     # ----------------------------------------------------------------------------------------------------------------
     else:
