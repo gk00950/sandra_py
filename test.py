@@ -28,11 +28,12 @@ root.attributes("-fullscreen", True)
 root.config(cursor="none")
 
 height = root.winfo_screenheight()
-width = root.winfo_screenwidth()
+width = root.winfo_screenheight()
+fullWidth = root.winfo_screenwidth()
 
 mouthHeight = int(height*600/1024)
 mouthWidth = int(width*900/1024)
-mouthX = int((width-mouthWidth)/2)
+mouthX = int((fullWidth-mouthWidth)/2)
 mouthY = int((height/14)*6)
 
 
@@ -51,7 +52,7 @@ for m in mouths:
 canvas = tkinter.Canvas(root, width=width, height=height, highlightthickness=0)
 canvas.pack(side="bottom", fill="both", expand="yes")
 canvas.configure(background="black")
-canvas.create_image(0, 0, anchor=tkinter.NW, image=img["smile"])
+canvas.create_image(128, 0, anchor=tkinter.NW, image=img["smile"])
 canvas.create_image(mouthX, mouthY, anchor=tkinter.NW, tags="lips", image=img["m"])
 
 
